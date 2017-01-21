@@ -1,0 +1,99 @@
+/* Reset */
+:focus {
+	outline: none;
+}
+
+/* Element styling */
+#buttonExercise {
+	width: 325px;
+	height: 365px;
+	background-color: hsla(0, 0%, 94%, 1);
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
+}
+
+button {
+	width: 180px;
+	height: 58px;
+	margin: 5px;
+	background-color: hsla(0, 0%, 100%, 1);
+	border-radius: 3px;
+	border: 1px solid hsla(0, 0%, 0%, 0.15);
+	box-shadow: 0 1px 0px hsla(0, 0%, 70%, 0.5);
+	position: relative;
+	overflow: hidden;
+}
+
+.clickPoint {
+	border-radius: 1000px;
+	background-color: black;
+	position: absolute;
+	opacity: 0;
+
+	transform-origin: center;
+	-webkit-transform-origin: center;
+}
+
+/* Animation classes - animation plays when class is added to element/s */
+.animation {
+	animation: buttonRaise 500ms ease-out, buttonLower 500ms 500ms ease-in;
+	-webkit-animation: buttonRaise 500ms ease-out, buttonLower 500ms 500ms ease-in;
+}
+
+.animation .clickPoint {
+    animation: clickPointEnter 100ms ease-out, clickPointLeave 300ms 100ms ease-out, clickPointLeaveOpacity 400ms 100ms ease-out;
+}
+
+/* Animation definitions */
+@keyframes buttonRaise {
+    100% {box-shadow: 0 2px 5.5px -1px hsla(0, 0%, 0%, 0.4)}
+}
+@-webkit-keyframes buttonRaise {
+    100% {box-shadow: 0 2px 5.5px -1px hsla(0, 0%, 0%, 0.4)}
+}
+
+
+@keyframes buttonLower {
+    0% {box-shadow: 0 2px 5.5px -1px hsla(0, 0%, 0%, 0.4)}
+}
+@-webkit-keyframes buttonLower {
+    0% {box-shadow: 0 2px 5.5px -1px hsla(0, 0%, 0%, 0.4)}
+}
+
+
+@keyframes clickPointEnter {
+    0% {
+    	transform: scale(0.1);
+    	opacity: 0;
+    }
+    100% {
+    	transform: scale(0.2);
+    	opacity: 0.2;
+    }
+}
+
+@keyframes clickPointLeave {
+    0% {
+    	transform: scale(0.2);
+    }
+    100% {
+    	transform: scale(1);
+    }
+}
+
+@keyframes clickPointLeaveOpacity {
+    0% {
+    	opacity: 0.15;
+    }
+    100% {
+    	opacity: 0;
+    }
+}
